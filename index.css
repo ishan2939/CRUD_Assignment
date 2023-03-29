@@ -1,0 +1,404 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #5761B2;
+    background-image: linear-gradient(225deg, #5761B2 0%,#1FC5A8 100%);
+    background-attachment: fixed;
+}
+
+/* main container */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* part1 and part2 */
+.container .part1,
+.container .part2 {
+    width: 85%;
+    padding: 50px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* title parts of part1 and part2 */
+.container .part1 .header,
+.part2 .title {
+    color: rgb(15, 61, 76);
+    font-family: cursive;
+    font-size: 60px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+
+
+/*----------------------------------------part1 begins-------------------------------------------*/
+
+
+
+/* form container */
+.container .part1 .form {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+/* image container of form */
+.container .part1 .form .image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(15, 61, 76);
+    border-radius: 35px 0px 0px 35px;
+}
+
+/* floating animation for image */
+@keyframes floating {
+    0% {
+        transform: translate(0%, 0%);
+    }
+
+    50% {
+        transform: translate(0%, -4%);
+    }
+
+    100% {
+        transform: translate(0%, 0%);
+    }
+}
+
+/* image in image container */
+.container .part1 .form .image img {
+    width: 600px;
+    animation: floating 5s ease-in-out infinite;
+}
+
+/* form in form container */
+.container .part1 .form form {
+    padding: 50px 70px;
+    background-image: linear-gradient(to bottom right, rgb(15, 79, 88), rgb(15, 61, 76));
+    border-left: 4px solid rgb(0, 54, 71);
+    border-radius: 0px 35px 35px 0px;
+}
+
+/* labels of different input fields */
+.container .part1 .form form label {
+    color: rgb(242, 201, 82);
+    text-transform: capitalize;
+    margin-top: 30px;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+}
+
+/* input fields */
+.container .part1 .form form input[type="text"],
+.container .part1 .form form textarea,
+.container .part1 .form form input[type="number"] {
+    width: 350px;
+    margin: 10px 0px 20px 0px;
+    padding: 10px 0px;
+    border: none;
+    outline: none;
+    background: transparent;
+    border-bottom: 2px solid #fff;
+    font-size: 16px;
+    color: #fff;
+}
+
+/* textarea */
+.container .part1 .form form textarea {
+    resize: none;
+}
+
+/* file input */
+.container .part1 .form form input[type="file"] {
+    width: 350px;
+    margin: 20px 0px;
+    color: #fff;
+    border-bottom: none;
+}
+
+/* file selector button */
+input::file-selector-button {
+    padding: 0.5em;
+    background-color: rgb(224, 168, 0);
+    color: #fff;
+    font-weight: bold;
+    border: thin solid grey;
+    border-radius: 5px;
+}
+
+/* placeholders of input fields */
+.container .part1 .form form input[type="text"]::placeholder,
+.container .part1 .form form textarea::placeholder,
+.container .part1 .form form input[type="number"]::placeholder {
+    color: rgb(197, 197, 197);
+}
+
+/* submit button */
+.container .part1 .form form input[type="submit"] {
+    margin: 0px auto;
+    padding: 15px 30px;
+    background-color: rgb(224, 168, 0);
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    outline: none;
+    cursor: pointer;
+}
+
+/* spinner buttons for number input field */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    display: none;
+}
+/*----------------------------------------part1 ends here-------------------------------------------*/
+
+
+
+/*----------------------------------------part2 begins------------------------------------------*/
+
+
+/* products container for part2 */
+.part2 .products {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 30px;
+}
+
+/* warn div if there are no products in database */
+.part2 .products .warn{
+    width: 100%;
+    padding: 30px;
+    color: #fff;
+    font-size: 30px;
+    text-align: center;
+    border-radius: 20px;
+    background-color: rgba(194, 145, 0, 0.5);
+}
+
+/* hide the warn div */
+.part2 .products .nowarn{
+    display: none;
+}
+
+/* features container */
+.part2 .products .features{
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+/* filter container */
+.part2 .products .features .search{
+    width: 60%;
+}
+
+/* input field for filter */
+.part2 .products .features .search input{
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    background-color: rgb(0, 54, 71);
+    color: #fff;
+    font-size: 16px;
+    border: 3px solid rgb(224, 168, 0);
+    border-radius: 15px;
+}
+
+/* placeholder for input field */
+.part2 .products .features .search input::placeholder{
+    color: #c7c7c7;
+}
+
+/* sortby features */
+.part2 .products .features .sortById,
+.part2 .products .features .sortByName,
+.part2 .products .features .sortByPrice{
+    width: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 5px;
+    background-color: rgb(0, 54, 71);
+    border: 3px solid rgb(224, 168, 0);
+    color: rgb(255, 255, 255);
+    border-radius: 15px;
+    user-select: none;
+    cursor: pointer;
+}
+
+/* ul for products */
+.part2 .products ul {
+    width: 100%;
+    padding: 50px 70px;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 70px 40px;
+    background-color: rgba(15, 79, 88, 0.9);
+    border-radius: 20px;
+    overflow-x: auto;
+}
+
+/* scrollbar of ul element */
+
+/* height */
+ul::-webkit-scrollbar {
+    height: 15px;
+}
+
+/* Track */
+ul::-webkit-scrollbar-track {
+    background: rgb(194, 145, 0);
+    border-radius: 0px 0px 30px 30px;
+}
+
+/* Handle */
+ul::-webkit-scrollbar-thumb {
+    background: rgb(0, 54, 71);
+    border-radius: 20px;
+    height: 10px;
+    cursor: pointer;
+}
+
+/* Handle on hover */
+ul::-webkit-scrollbar-thumb:hover {
+    background: rgb(15, 61, 76);
+}
+
+/* li of products */
+.part2 .products ul li {
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 25px;
+    background-color: rgb(15, 61, 76);
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    user-select: none;
+}
+
+/* image div for products */
+.part2 .products ul li .image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -10%;
+    color: #fff;
+    /* applying background color for images without background*/
+    background-color: rgb(0, 54, 71);
+    border-radius: 15px;
+}
+
+/* image of image container */
+.part2 .products ul li .image img{
+    width: 100px;
+    height: 100px;
+    border: 5px solid rgb(194, 145, 0);
+    border-radius: 15px;
+    object-fit: cover;
+    box-shadow: rgb(0, 0, 0) 0px 10px 15px -10px;
+}
+
+/* id, name, price part of container */
+.part2 .products ul li .id,
+.part2 .products ul li .name,
+.part2 .products ul li .price {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: block;
+    text-align: center;
+}
+
+.part2 .products ul li .id {
+    margin-top: 60px;
+    padding: 10px;
+    color: #fff;
+    font-size: 14px;
+}
+
+.part2 .products ul li .name {
+    width: 170px;
+    padding: 7px;
+    color: rgb(242, 201, 82);
+    text-transform: capitalize;
+}
+
+.part2 .products ul li .price {
+    margin: 10px 0px 15px 0px;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: rgb(15, 79, 88);
+    border-radius: 20px;
+}
+
+/* div container for edit, view and delete functions */
+.part2 .products ul li .buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    position: absolute;
+    top: 90%;
+}
+
+/* images of all view, edit and delete container */
+.part2 .products ul li .buttons .view img,
+.part2 .products ul li .buttons .edit img,
+.part2 .products ul li .buttons .delete img {
+    width: 40px;
+    height: 40px;
+    padding: 7px;
+    border-radius: 50%;
+    box-shadow: 0px 12px 24px rgba(2, 30, 84, .2);
+    cursor: pointer;
+}
+
+.part2 .products ul li .buttons .view img{
+    background-color: rgb(16, 140, 189);
+}
+
+.part2 .products ul li .buttons .edit img{
+    background-color: rgb(0, 163, 108);
+}
+
+.part2 .products ul li .buttons .delete img{
+    background-color: rgb(238, 75, 43);
+}
+
+/* container if there exists no such products when user filters */
+.part2 .products ul .nofound{
+    margin: 0 auto;
+    padding: 20px 30px;
+    color: #fff;
+    background-color: rgb(194, 145, 0);
+    box-shadow: none;
+    text-transform: capitalize;
+}
+/*----------------------------------------part2 ends here-------------------------------------------*/

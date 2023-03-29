@@ -1,0 +1,160 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    user-select: none;
+}
+
+body {
+    height: 100vh;
+    background-color: #5761B2;
+    background-image: linear-gradient(225deg, #5761B2 0%, #1FC5A8 100%);
+    background-attachment: fixed;
+}
+
+/* container div */
+.container {
+    width: 70%;
+    margin: 0px auto;
+    padding: 30px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* animation for bubbles */
+@keyframes bubble {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* bubbles */
+.content .bubble1,
+.content .bubble2,
+.content .bubble3 {
+    position: absolute;
+    border-radius: 50%;
+    box-shadow: inset rgb(50, 50, 93) 0px 0px 10px -20px, rgb(0, 0, 0) 0px 8px 20px -8px;
+    animation: bubble 4s ease-in-out infinite;
+    z-index: 1;
+}
+
+/* right most bubble */
+.content .bubble1 {
+    width: 200px;
+    height: 200px;
+    top: -50px;
+    right: -80px;
+    background-image: linear-gradient(to bottom right, rgb(245, 208, 99), rgb(255, 191, 0));
+}
+
+/* left most bigger one */
+.content .bubble2 {
+    width: 100px;
+    height: 100px;
+    bottom: -50px;
+    left: -60px;
+    background-image: linear-gradient(to bottom right, rgb(245, 208, 99), rgb(255, 191, 0));
+}
+
+/* left side smaller one */
+.content .bubble3 {
+    width: 60px;
+    height: 60px;
+    bottom: -20px;
+    left: 10px;
+    background-image: linear-gradient(to bottom right, rgb(19, 83, 93), rgb(15, 61, 76));
+}
+
+/* container for product name */
+.container .name {
+    margin-bottom: 70px;
+    color: rgb(15, 61, 76);
+    font-size: 60px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    letter-spacing: 2.2px;
+}
+
+/* container for other content */
+.container .content {
+    width: 100%;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: #fff;
+    border: 2px solid rgb(19, 83, 93);
+    border-radius: 10px;
+    background-color: rgb(15, 61, 76);
+    box-shadow: rgb(50, 50, 93) 0px 13px 27px -5px, rgb(0, 0, 0) 0px 8px 16px -8px;
+}
+
+/* floating animation for image container */
+@keyframes floating {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* product image container */
+.container .image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -50px;
+    animation: floating 5s ease-in-out infinite;
+    /* applying background color for images without background*/
+    background-color: rgb(0, 54, 71);
+    border-radius: 20px;
+}
+
+/* product image */
+.container .image img {
+    width: 250px;
+    height: 250px;
+    border: 5px solid rgb(245, 184, 0);
+    border-radius: 20px;
+    object-fit: contain;
+    box-shadow: rgba(245, 184, 0, 0.1) 0px 13px 27px -5px, rgba(245, 184, 0, 0.5) 0px 8px 16px -8px;
+}
+
+/* product id div */
+.container .id {
+    margin-top: 230px;
+    font-size: 20px;
+}
+
+/* product description div*/
+.container .desc {
+    margin-top: 30px;
+    background-color: rgb(19, 83, 93);
+    padding: 20px;
+    width: 100%;
+    text-align: justify;
+    border: 3px solid rgb(245, 184, 0);
+    border-radius: 10px;
+    white-space: pre-wrap;
+}
