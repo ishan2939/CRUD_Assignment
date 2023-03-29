@@ -212,7 +212,7 @@ function updateProduct(i) {//when user clicks edit button
     
     //create datatransfer object
     let transferObj = new DataTransfer();
-    transferObj.items.add(file);//add file to it
+    transferObj.items.add(file);//add file object to it
 
     //assign datatransfer object to form
     form.elements[2].files = transferObj.files;

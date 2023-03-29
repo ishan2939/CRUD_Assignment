@@ -20,7 +20,7 @@ body {
     align-items: center;
 }
 
-/* part1 and part2 */
+/* part1(form part) and part2(products part)*/
 .container .part1,
 .container .part2 {
     width: 85%;
@@ -133,7 +133,7 @@ body {
 }
 
 /* file selector button */
-input::file-selector-button {
+input[type="file"]::file-selector-button {
     padding: 0.5em;
     background-color: rgb(224, 168, 0);
     color: #fff;
