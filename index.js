@@ -56,7 +56,7 @@ function submitForm(e) { // if user submits the form
         }
         else if (isEditing) {//if user is editing a product
 
-            if (checkUniqueID(form.elements[0].value.trim(), 1)) { //check if new entered product ID is unique
+            if (!checkUniqueID(oldID, form.elements[0].value.trim(), 1)) { //check if new entered product ID is unique
                 //here checkuniqueID takes number as a second argument because while editing there will already be a product with same ID(the product itself)
                 alert("Product with the same ID already exists. Please enter unique IDs only.");
                 form.elements[0].focus();
@@ -90,7 +90,7 @@ function submitForm(e) { // if user submits the form
         }//else if block ends here
 
         else { //if user is not editing
-            if (checkUniqueID(form.elements[0].value.trim(), 0)) {//check if ID is unique
+            if (!checkUniqueID(0, form.elements[0].value.trim(), 0)) {//check if ID is unique
                 //here above function takes 0 as n because while adding new product there should not be any product with same ID in database
                 alert("Product with the same ID already exists. Please enter unique IDs only.");
                 form.elements[0].focus();
@@ -121,16 +121,26 @@ function checktheform(v) {
 }
 
 //check for unique ID
-function checkUniqueID(i, n) {
-    if (products.filter((p) => p.id == i).length > n)//return true if database does contain product with same ID
-        return true;
-    else
-        return false;
+function checkUniqueID(oi, i, n) {//take oldID newID and limit as arguments
+    if(n==0){//if there should be no items with same id
+        if(products.filter((p)=> p.id == i).length>0)//chek if id is unique or not
+            return false;
+        else
+            return true;
+    }
+    else if(n==1){//if one element with same ID sould be allowed
+        if(oi!=i){//check if user edited the ID value of product(that means id is not same as before)
+            if(products.filter((p)=>p.id == i).length>0)//check if there exists product with same id
+                return false;
+            else 
+                return true;
+        }//if user did no update it's ID 
+        else
+            return true;
+    }
 }
-
 //check if name only contains alphabets and space
 function checkName(n) {
-    console.log(n.match(/^[A-Za-z\s]+$/));
     if (n.match(/^[A-Za-z\s]+$/))
         return false;
     else
