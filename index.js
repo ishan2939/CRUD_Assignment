@@ -134,8 +134,8 @@ function checkUniqueID(oi, i, n) {//take oldID newID and limit as arguments
                 return false;
             else 
                 return true;
-        }//if user did no update it's ID 
-        else
+        }
+        else//if user did not update it's ID 
             return true;
     }
 }
